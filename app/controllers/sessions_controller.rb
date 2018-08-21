@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_url
     else
       flash.now[:alert] = ["Login failed, name and/or password are incorrect"]
       render :new
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_url, notice: "Logged out!"
   end
 end
