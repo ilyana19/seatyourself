@@ -1,0 +1,64 @@
+<h1>Add Restaurant</h1>
+
+<%= form_for @restaurant do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div class="errors-block">
+        There are <%= pluralize(@restaurantr.errors.count, "error") %>.
+        <ul>
+          <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %> <br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :neighbourhood %> <br />
+    <%= f.text_field :neighbourhood %>
+  </div>
+
+  <div>
+    <%= f.label :address %> <br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :opening_hour %> <br />
+    <%= f.number_field :opening_hour %>
+  </div>
+
+  <div>
+    <%= f.label :closing_hour %> <br />
+    <%= f.number_field :closing_hour %>
+  </div>
+
+  <div>
+     <%= f.label :summary %><br />
+     <%= f.text_field :summary %>
+  </div>
+
+  <div>
+     <%= f.label :menu %><br />
+     <%= f.text_field :menu %>
+  </div>
+
+  <div>
+     <%= f.label :price_range %><br />
+     <%= f.number_field :price_range %>
+  </div>
+
+  <div>
+     <%= f.label :available_slots %><br />
+     <%= f.number_field :available_slots %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+
+<% end %>
