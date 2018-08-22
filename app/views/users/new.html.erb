@@ -1,6 +1,17 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="errors">
+        There are <%= pluralize(@user.errors.count, "error") %>.
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :first_name %> <br />
     <%= f.text_field :first_name %>
@@ -9,6 +20,11 @@
   <div>
     <%= f.label :last_name %> <br />
     <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :phone %> <br />
+    <%= f.text_field :phone %>
   </div>
 
   <div>

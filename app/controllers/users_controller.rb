@@ -20,8 +20,10 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
 
     if @user.save
+      flash.now[:alert] = ["Successfully created an account."]
       redirect_to root_url
     else
+      flash.now[:alert] = ["Failed to create an account."]
       render :new
     end
   end
