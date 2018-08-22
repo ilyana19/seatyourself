@@ -9,12 +9,16 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
 
     if @reservation.save
-      flash.now[:alert] = ["Successfully made a reservation."]
-      redirect_to root_url
-    else
-      flash.now[:alert] = ["Failed to made a reservation."]
-      render 'restaurants/show'
-    end
+        flash.now[:alert] = ["Successfully made a reservation."]
+        redirect_to root_url
+      else
+        flash.now[:alert] = ["Failed to made a reservation."]
+        render 'restaurants/show'
+      end
+    # else
+    #   flash.now[:alert] = ["Failed to made a reservation."]
+    #   render 'restaurants/show'
+    # end
   end
 
   def edit
