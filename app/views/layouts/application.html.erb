@@ -15,7 +15,7 @@
       Hello <%= current_user.full_name %>! <br>
       <%= link_to 'Log Out', session_path(current_user), method: :delete %>
     <% else %>
-      <%= link_to "Sign Up", new_user_path %> <br>
+      <%= link_to "Sign Up", new_user_path %> |
       <%= link_to "Login", new_session_path %>
     <% end %>
   </header>
@@ -23,32 +23,20 @@
   <main>
     <h1>Welcome</h1>
 
-    <h1>Reservations</h1>
-
-    <% current_user.reservations.each do |reservation| %>
-      <p>
-        <%= reservation.restaurant.name %>
-      </p>
-      <p>
-        <%= reservation.restaurant.address %>
-      </p>
-      <p>
-        <%= reservation.time_slot %>
-      </p>
-      <p>
-        <%= reservation.party_size%>
-      </p>
-
-    <% end %>
+    <h2>Reservations</h2>
 
 
 
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p class="alert"><%= flash[:alert] %></p>
-    <% end %>
+
+    <section>
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= flash[:alert] %></p>
+      <% end %>
+    </section>
+
 
     <%= yield %>
   </main>

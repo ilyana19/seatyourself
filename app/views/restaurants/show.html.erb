@@ -1,15 +1,15 @@
-<h1><%= @restaurant.name %> </h1>
+<section>
+<h3><%= @restaurant.name %></h3>
+<h4>Price Range: $<%= @restaurant.price_range %></h4>
 
 <ul>
-  <li><%= @restaurant.address %></li>
-  <li><%= @restaurant.neighbourhood %></li>
-  <li><%= @restaurant.price_range %></li>
-  <li><%= @restaurant.summary %></li>
-  <li><%= @restaurant.menu %></li>
+  <li>Address: <%= @restaurant.address %>, <%= @restaurant.neighbourhood %></li>
+  <li>Hours: <%= @restaurant.opening_hour %>:00 - <%= @restaurant.closing_hour %>:00</li>
+  <li>About: <%= @restaurant.summary %></li>
+  <li>Menu: <%= @restaurant.menu %></li>
   <li><%= @restaurant.available_slots %></li>
-  <li><%= @restaurant.opening_hour %></li>
-  <li><%= @restaurant.closing_hour %></li>
 </ul>
+</section>
 
 <section class="reservation-form">
   <h4>Make a New Reservation</h4>

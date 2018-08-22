@@ -1,3 +1,15 @@
 // Place all the styles related to the Restaurant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul li {
+  list-style-type: none;
+  line-height: 25px;
+}
+
+ul {
+  padding: 0;
+}
+
+.reservation-form {
+  line-height: 20px;
+}

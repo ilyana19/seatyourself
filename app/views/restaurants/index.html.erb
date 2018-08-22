@@ -1,8 +1,9 @@
-<h1>Seat Yourself</h1>
+<section class="restaurant-wrapper wrapper">
+  <h2>Seat Yourself</h2>
+  <% @restaurants.each do |restaurant| %>
+    <p>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    </p>
 
-<% @restaurants.each do |restaurant| %>
-  <p>
-    <%= link_to restaurant.name, restaurant_path(restaurant) %>
-  </p>
-
-<% end %>
+  <% end %>
+</section>
