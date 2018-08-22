@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :reservations
 
   validates :first_name, :last_name, :email, :phone, presence: true
   validates :email, uniqueness: true
