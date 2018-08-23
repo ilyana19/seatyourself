@@ -15,9 +15,45 @@
  */
 a {
   text-decoration: none;
-  color: black;
+  color: #eee;
 }
 
 a:hover {
-  color: red;
+  color: #000;
+}
+
+body {
+  margin: 100px auto 0 auto;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 400;
+  font-size: 2.8em;
+  padding: 0;
+  margin: 0;
+  color: #eee;
+}
+
+main {
+  padding: 100px 0;
+}
+
+footer {
+  margin: 20px auto;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.4em;
+}
+
+.restaurant-wrapper a {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+h4 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.6em;
 }
