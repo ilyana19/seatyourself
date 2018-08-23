@@ -9,8 +9,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @reservation = Reservation.new
-    # @owner = User.find(@restaurant.user_id)
-    # <!-- <p>Owner: <%= @owner.first_name %></p> --> Put in show.html.erb
   end
 
   def new
@@ -18,17 +16,18 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new
-    @restaurant.name = params[:restaurant][:name]
-    @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
-    @restaurant.address = params[:restaurant][:address]
-    @restaurant.opening_hour = params[:restaurant][:opening_hour]
-    @restaurant.closing_hour = params[:restaurant][:closing_hour]
-    @restaurant.summary = params[:restaurant][:summary]
-    @restaurant.menu = params[:restaurant][:menu]
-    @restaurant.price_range = params[:restaurant][:price_range]
-    @restaurant.available_slots = params[:restaurant][:available_slots]
-    @restaurant.user_id = current_user.id
+    @restaurant = Restaurant.new(
+      name: params[:restaurant][:name],
+      neighbourhood: params[:restaurant][:neighbourhood],
+      address: params[:restaurant][:address],
+      opening_hour: params[:restaurant][:opening_hour],
+      closing_hour: params[:restaurant][:closing_hour],
+      summary: params[:restaurant][:summary],
+      menu: params[:restaurant][:menu],
+      price_range: params[:restaurant][:price_range],
+      available_slots: params[:restaurant][:available_slots],
+      user: current_user
+    )
 
     if @restaurant.save
       flash.now[:alert] = ["Successfully created a restaurant."]
@@ -43,17 +42,18 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant.name = params[:restaurant][:name]
-    @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
-    @restaurant.address = params[:restaurant][:address]
-    @restaurant.opening_hour = params[:restaurant][:opening_hour]
-    @restaurant.closing_hour = params[:restaurant][:closing_hour]
-    @restaurant.summary = params[:restaurant][:summary]
-    @restaurant.menu = params[:restaurant][:menu]
-    @restaurant.price_range = params[:restaurant][:price_range]
-    @restaurant.available_slots = params[:restaurant][:available_slots]
-
-    if @restaurant.save
+    if @restaurant && @restaurant.update(
+      name: params[:restaurant][:name],
+      neighbourhood: params[:restaurant][:neighbourhood],
+      address: params[:restaurant][:address],
+      opening_hour: params[:restaurant][:opening_hour],
+      closing_hour: params[:restaurant][:closing_hour],
+      summary: params[:restaurant][:summary],
+      menu: params[:restaurant][:menu],
+      price_range: params[:restaurant][:price_range],
+      available_slots: params[:restaurant][:available_slots],
+      user: current_user
+    )
       flash.now[:alert] = ["Successfully edited the restaurant."]
       redirect_to restaurant_url
     else
