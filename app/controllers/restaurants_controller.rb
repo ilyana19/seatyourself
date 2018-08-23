@@ -26,6 +26,7 @@ class RestaurantsController < ApplicationController
       menu: params[:restaurant][:menu],
       price_range: params[:restaurant][:price_range],
       available_slots: params[:restaurant][:available_slots],
+      max_capacity: params[:restaurant][:max_capacity],
       user: current_user
     )
 
@@ -52,6 +53,7 @@ class RestaurantsController < ApplicationController
       menu: params[:restaurant][:menu],
       price_range: params[:restaurant][:price_range],
       available_slots: params[:restaurant][:available_slots],
+      max_capacity: params[:restaurant][:max_capacity],
       user: current_user
     )
       flash.now[:alert] = ["Successfully edited the restaurant."]

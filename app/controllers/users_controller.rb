@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash.now[:alert] = ["Successfully created an account."]
+      session[:user_id] = @user.id
       redirect_to root_url
     else
       flash.now[:alert] = ["Failed to create an account."]
