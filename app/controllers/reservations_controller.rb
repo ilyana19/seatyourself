@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index, :show ]
+  before_action :load_user_reservations,
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
