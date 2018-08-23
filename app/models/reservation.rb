@@ -8,7 +8,7 @@ class Reservation < ApplicationRecord
   validate :check_party_size
 
   def check_time
-    if  restaurant.opening_hour >= self.time_slot.hour || restaurant.closing_hour <= self.time_slot.hour
+    if  restaurant.opening_hour > self.time_slot.hour || restaurant.closing_hour <= self.time_slot.hour
       errors.add(:base, "Reservation must be within operation hours!")
     end
   end
