@@ -5,6 +5,7 @@ class Reservation < ApplicationRecord
   validate :check_time
   validate :check_date
   validate :total_party_size
+  validate :check_party_size
 
   def check_time
     if  restaurant.opening_hour >= self.time_slot.hour || restaurant.closing_hour <= self.time_slot.hour
@@ -22,6 +23,12 @@ class Reservation < ApplicationRecord
     total = restaurant.reservations.where(time_slot: self.time_slot).sum(:party_size) + self.party_size
     if total > restaurant.max_capacity
       errors.add(:base, "There are no available seats!")
+    end
+  end
+
+  def check_party_size
+    if self.party_size < restaurant.min_party_size || self.party_size > restaurant.max_party_size
+      errors.add(:base, "The minimum number of people is #{restaurant.min_party_size} and the maximum number of people is #{restaurant.max_party_size}.")
     end
   end
 end

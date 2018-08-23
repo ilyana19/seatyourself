@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_143528) do
+ActiveRecord::Schema.define(version: 2018_08_23_155823) do
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_08_23_143528) do
     t.integer "opening_hour"
     t.integer "closing_hour"
     t.integer "max_capacity"
+    t.integer "min_party_size", default: 1
+    t.integer "max_party_size", default: 10
   end
 
   create_table "users", force: :cascade do |t|
