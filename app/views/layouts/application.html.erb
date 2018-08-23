@@ -13,7 +13,8 @@
 
     <% if current_user %>
       Hello <%= current_user.full_name %>! <br>
-      <%= link_to 'Log Out', session_path(current_user), method: :delete %>
+      <%= link_to 'Log Out', session_path(current_user), method: :delete %> |
+      <%= link_to "Create New Restaurant", new_restaurant_path %>
     <% else %>
       <%= link_to "Sign Up", new_user_path %> |
       <%= link_to "Login", new_session_path %>
