@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
+  
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = Reservation.new
@@ -11,14 +13,10 @@ class ReservationsController < ApplicationController
     if @reservation.save
         flash.now[:alert] = ["Successfully made a reservation."]
         redirect_to root_url
-      else
-        flash.now[:alert] = ["Failed to made a reservation."]
-        render 'restaurants/show'
-      end
-    # else
-    #   flash.now[:alert] = ["Failed to made a reservation."]
-    #   render 'restaurants/show'
-    # end
+    else
+      flash.now[:alert] = ["Failed to made a reservation."]
+      render 'restaurants/show'
+    end
   end
 
   def edit

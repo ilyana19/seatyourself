@@ -1,8 +1,9 @@
 class Restaurant < ApplicationRecord
   has_many :reservations
-  has_many :users, through: :reservations
+  belongs_to :user
+  # has_many :users, through: :reservations
 
-  # def show_owner
-  #   "#{@restaurant.users.first_name} #{@restaurant.users.last_name}"
-  # end
+  def self.show_owner
+    # SELECT first_name FROM users WHERE(SELECT user_id FROM restaurants WHERE(restaurants.id = 5));
+  end
 end

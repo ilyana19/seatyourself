@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_193714) do
+ActiveRecord::Schema.define(version: 2018_08_22_212928) do
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_193714) do
     t.string "price_range"
     t.text "summary"
     t.text "menu"
-    t.integer "owner_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "available_slots"

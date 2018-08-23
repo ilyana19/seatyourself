@@ -1,4 +1,10 @@
 <section>
+<% if current_user %>
+  <% if current_user.id == @restaurant.user_id %>
+    <%= link_to 'Edit Restaurant', edit_restaurant_path %>
+  <% end %>
+<% end %>
+
 <h3><%= @restaurant.name %></h3>
 <h4>Price Range: $<%= @restaurant.price_range %></h4>
 
