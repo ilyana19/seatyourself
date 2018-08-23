@@ -20,7 +20,18 @@
 </section>
 
 
-<% if current_user == @restaurant.user%>
+
   <h2>My Restaurants</h2>
 
-<% end %>
+  <% @restaurant.each do |restaurant| %>
+  <%=   restaurant.name %>
+    <% restaurant.reservations.each do |reservation| %>
+    <br>
+    <%= reservation.party_size %>
+    <br>
+    <%= reservation.time_slot %>
+    <br>
+    <%= reservation.note %>
+    <p> ---------------- </p>
+    <% end %>
+  <% end  %>

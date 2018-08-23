@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  # before_action :require_login, except: [:index, :show]
   # before_action :load_restaurant, only: [:show, :edit, :update]
   # before_action :require_ownership, only: [:edit, :update]
 
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @restaurant = Restaurant.find_by(user_id)
+    @restaurant = @user.restaurants
   end
 end
