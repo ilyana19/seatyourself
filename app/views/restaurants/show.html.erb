@@ -1,7 +1,8 @@
 <section>
   <% if current_user %>
     <% if current_user.id == @restaurant.user_id %>
-      <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant) %>
+      <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant) %> | <%=
+      link_to 'Delete', restaurant_path(@restaurant), :method => :delete %>
     <% end %>
   <% end %>
 

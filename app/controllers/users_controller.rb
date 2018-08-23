@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: [:index, :show]
+  # before_action :load_restaurant, only: [:show, :edit, :update]
+  # before_action :require_ownership, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -29,5 +33,10 @@ class UsersController < ApplicationController
       flash.now[:alert] = ["Failed to create an account."]
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @restaurant = Restaurant.find_by(user_id)
   end
 end

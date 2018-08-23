@@ -1,0 +1,26 @@
+
+
+<h2>Reservations</h2>
+  <% if current_user %>
+    <% current_user.reservations.each do |reservation| %>
+      <p>
+        <%= reservation.restaurant.name %>
+      </p>
+      <p>
+        <%= reservation.restaurant.address %>
+      </p>
+      <p>
+        <%= reservation.time_slot %>
+      </p>
+      <p>
+        <%= reservation.party_size%>
+      </p>
+    <% end %>
+  <% end %>
+</section>
+
+
+<% if current_user == @restaurant.user%>
+  <h2>My Restaurants</h2>
+
+<% end %>

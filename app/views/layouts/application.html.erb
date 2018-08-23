@@ -14,10 +14,12 @@
     <% if current_user %>
       Hello <%= current_user.full_name %>! <br>
       <%= link_to 'Log Out', session_path(current_user), method: :delete %> |
-      <%= link_to "Create New Restaurant", new_restaurant_path %>
+      <%= link_to "Create New Restaurant", new_restaurant_path %> |
+      <%= link_to "Profile", user_path(current_user) %>
     <% else %>
       <%= link_to "Sign Up", new_user_path %> |
-      <%= link_to "Login", new_session_path %>
+      <%= link_to "Login", new_session_path %> |
+
     <% end %>
   </header>
 
@@ -27,24 +29,6 @@
 
     <h1>Welcome</h1>
 
-    <h2>Reservations</h2>
-      <% if current_user %>
-        <% current_user.reservations.each do |reservation| %>
-          <p>
-            <%= reservation.restaurant.name %>
-          </p>
-          <p>
-            <%= reservation.restaurant.address %>
-          </p>
-          <p>
-            <%= reservation.time_slot %>
-          </p>
-          <p>
-            <%= reservation.party_size%>
-          </p>
-        <% end %>
-      <% end %>
-    </section>
 
 
     <section>
