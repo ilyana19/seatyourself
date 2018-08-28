@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr;
+}

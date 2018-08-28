@@ -5,35 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700|Shadows+Into+Light" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Main Nav</h1>
-    <p><%= link_to "Home page", root_path %></p>
+    <div class="logo-wrapper">
+      <%= link_to image_tag('chef_hat.gif', class: 'logo'), root_path %>
+    </div>
 
-    <% if current_user %>
-      Hello <%= current_user.full_name %>! <br>
-      <%= link_to 'Log Out', session_path(current_user), method: :delete %> |
-      <%= link_to "Create New Restaurant", new_restaurant_path %> |
-      <%= link_to "Profile", user_path(current_user) %>
-      
-    <% else %>
-      <%= link_to "Sign Up", new_user_path %> |
-      <%= link_to "Login", new_session_path %> |
-
-    <% end %>
+    <nav id="main-nav">
+      <% if current_user %>
+        <p class="welcome-msg">Hello <%= current_user.full_name %>!</p>
+        <ul>
+          <li class="nav-links"><%= link_to "Home", root_path %></li>
+          <li class="nav-links"><%= link_to "My Profile", user_path(current_user) %></li>
+          <li class="nav-links"><%= link_to "Add A Restaurant", new_restaurant_path %></li>
+          <li class="nav-links"><%= link_to 'Log Out', session_path(current_user), method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li class="nav-links"><%= link_to "Sign Up", new_user_path %></li>
+          <li class="nav-links"><%= link_to "Login", new_session_path %></li>
+        </ul>
+      <% end %>
+    </nav>
   </header>
 
   <main>
-    <section>
-
-
-    <h1>Welcome</h1>
-
-
-
-    <section>
+    <section class="error-block">
       <% if flash[:notice] %>
         <p class="notice"><%= flash[:notice] %></p>
       <% end %>
@@ -41,7 +41,6 @@
         <p class="alert"><%= flash[:alert] %></p>
       <% end %>
     </section>
-
 
     <%= yield %>
   </main>

@@ -1,0 +1,14 @@
+.logo {
+  border: 1px solid black;
+}
+
+.error-block {
+  background: $light_gray;
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  .notice {
+    padding: 1em 0;
+  }
+}
