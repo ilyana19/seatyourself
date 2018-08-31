@@ -1,21 +1,9 @@
 class UsersController < ApplicationController
-  # before_action :require_login, except: [:index, :show]
-  # before_action :load_restaurant, only: [:show, :edit, :update]
-  # before_action :require_ownership, only: [:edit, :update]
-
   def new
     @user = User.new
   end
 
   def create
-    # @user = User.new (
-    #   first_name: params[:user][:first_name],
-    #   last_name: params[:user][:last_name],
-    #   email: params[:user][:email],
-    #   password: params[:user][:password],
-    #   password_confirmation: params[:user][:password_confirmation]
-    # )
-
     @user = User.new
     @user.first_name = params[:user][:first_name]
     @user.last_name = params[:user][:last_name]

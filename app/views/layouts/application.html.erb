@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700|Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700|Shadows+Into+Light+Two" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -16,9 +16,9 @@
 
     <nav id="main-nav">
       <% if current_user %>
-        <p class="welcome-msg">Hello <%= current_user.full_name %>!</p>
+        <!-- <p class="welcome-msg">Hello <%= current_user.full_name %>!</p> -->
         <ul>
-          <li class="nav-links"><%= link_to "Home", root_path %></li>
+          <!-- <li class="nav-links"><%= link_to "Home", root_path %></li> -->
           <li class="nav-links"><%= link_to "My Profile", user_path(current_user) %></li>
           <li class="nav-links"><%= link_to "Add A Restaurant", new_restaurant_path %></li>
           <li class="nav-links"><%= link_to 'Log Out', session_path(current_user), method: :delete %></li>

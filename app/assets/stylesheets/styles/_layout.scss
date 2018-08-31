@@ -1,14 +1,36 @@
-.logo {
-  border: 1px solid black;
+.logo-wrapper {
+  place-self: center;
+  .logo {
+    border: 1px solid $black;
+    height: 100px;
+  }
 }
 
 .error-block {
-  background: $light_gray;
+  background: $light-gray;
   position: absolute;
   width: 100%;
   top: 0;
 
   .notice {
     padding: 1em 0;
+  }
+}
+
+#main-nav {
+  place-self: center end;
+  padding-right: 1rem;
+
+  .nav-links {
+    display: inline-block;
+    padding: 1rem;
+  }
+}
+
+.wrapper {
+  .restaurant-wrapper {
+    background: #eee;
+    padding: 1rem;
+    margin: 1rem auto;
   }
 }

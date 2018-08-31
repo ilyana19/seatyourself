@@ -1,9 +1,16 @@
-<section class="restaurant-wrapper wrapper">
-  <h2>Seat Yourself</h2>
-  <% @restaurants.each do |restaurant| %>
-    <p>
-      <%= link_to restaurant.name, restaurant_path(restaurant) %>
-    </p>
+<section class="wrapper">
+  <h1>Seat Yourself</h1>
 
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <div class="restaurant-wrapper">
+        <%= image_tag('https://via.placeholder.com/350x200') %>
+        <h2><%= restaurant.name %> <small>(<%= restaurant.neighbourhood %>)</small></h2>
+
+        <p class="restaurant-info">
+          Business Hours: <%= restaurant.opening_hour %> - <%= restaurant.closing_hour %>
+        </p>
+      </div>
+    <% end %>
   <% end %>
 </section>

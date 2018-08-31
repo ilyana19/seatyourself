@@ -6,10 +6,14 @@
 
 html, body {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
   display: grid;
+  font-family: $sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 img {
@@ -17,7 +21,48 @@ img {
   height: auto;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: $blue;
+}
+
+a:hover, a:focus {
+  color: darken($blue, 30%);
+}
+
+h1, h2 {
+  font-family: $cursive;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 3.4rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+
+  small {
+    font-size: 1.8rem;
+  }
+}
+
 header {
   display: inline-grid;
   grid-template-columns: 1fr 2fr;
+  height: 100px;
+}
+
+main {
+  .wrapper {
+    // margin: 2rem 0 0;
+  }
+}
+
+footer {
+  margin: 2rem auto;
+  place-self: center end;
 }
