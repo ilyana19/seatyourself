@@ -4,11 +4,12 @@
   <% @restaurants.each do |restaurant| %>
     <%= link_to restaurant_path(restaurant) do %>
       <div class="restaurant-wrapper">
-        <%= image_tag('https://via.placeholder.com/350x200') %>
+        <%= image_tag('https://via.placeholder.com/360x200') %>
         <h2><%= restaurant.name %> <small>(<%= restaurant.neighbourhood %>)</small></h2>
 
         <p class="restaurant-info">
-          Business Hours: <%= restaurant.opening_hour %> - <%= restaurant.closing_hour %>
+          <%= restaurant.address %><br>
+          Business Hours: <%= restaurant.business_hours %>
         </p>
       </div>
     <% end %>
