@@ -1,0 +1,22 @@
+.restaurant-wrapper {
+  background: #eee;
+  padding: 1rem;
+}
+
+.restaurant-info {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  text-align: center;
+  color: $black;
+}
+
+.restaurant-image {
+  max-width: 360px;
+  max-height: 250px;
+  overflow: hidden;
+
+  img {
+    object-position: 50% 50%;
+    object-fit: cover;
+  }
+}
