@@ -49,8 +49,8 @@
 }
 
 .error-block {
-  color: darken($red, 20%);
-  background: lighten($red, 40%);
+  color: darken($blue, 20%);
+  background: $light-gray;
   position: absolute;
   width: 100%;
   top: 0;
