@@ -3,6 +3,8 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   # has_many :users, through: :reservations
 
+  validates :name, :neighbourhood, :address, :opening_hour, :closing_hour, :image, presence: true
+
   def business_hours
     "#{opening_hour}:00 AM - #{closing_hour-12}:00 PM"
   end

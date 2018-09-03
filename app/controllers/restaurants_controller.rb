@@ -33,10 +33,10 @@ class RestaurantsController < ApplicationController
     )
 
     if @restaurant.save
-      flash.now[:alert] = ["Successfully created a restaurant."]
+      flash.now[:alert] = "Successfully created a restaurant."
       redirect_to root_url
     else
-      flash.now[:alert] = ["Failed to create a restaurant."]
+      flash.now[:alert] = "Failed to create a restaurant."
       render :new
     end
   end

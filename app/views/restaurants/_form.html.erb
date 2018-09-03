@@ -1,37 +1,37 @@
-<%= form_for restaurant do |f| %>
+<%= form_for restaurant, html: {class: 'form'} do |f| %>
   <% if restaurant.errors.any? %>
-    <div class="errors-block">
-        There are <%= pluralize(restaurantr.errors.count, "error") %>.
+    <div class="error-explanation">
+        <h3>There are <%= pluralize(restaurant.errors.count, "error") %>.</h3>
         <ul>
           <% restaurant.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <li>* <%= msg %></li>
           <% end %>
         </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %> <br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :neighbourhood %> <br />
+    <%= f.label :neighbourhood %>
     <%= f.text_field :neighbourhood %>
   </div>
 
   <div class="field">
-    <%= f.label :address %> <br />
+    <%= f.label :address %>
     <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label :opening_hour %> <br />
+    <%= f.label :opening_hour %>
     <%= f.number_field :opening_hour %>
   </div>
 
   <div class="field">
-    <%= f.label :closing_hour %> <br />
+    <%= f.label :closing_hour %>
     <%= f.number_field :closing_hour %>
   </div>
 
@@ -41,37 +41,41 @@
   </div>
 
   <div class="field">
-     <%= f.label :menu %><br />
+     <%= f.label :menu %>
      <%= f.text_field :menu %>
   </div>
 
   <div class="field">
-     <%= f.label :price_range %><br />
+     <%= f.label :price_range %>
      <%= f.text_field :price_range %>
   </div>
 
   <div class="field">
-     <%= f.label :available_slots %><br />
+     <%= f.label :available_slots %>
      <%= f.number_field :available_slots %>
   </div>
 
   <div class="field">
-     <%= f.label :max_capacity %><br />
+     <%= f.label :max_capacity %>
      <%= f.number_field :max_capacity %>
   </div>
 
   <div class="field">
-     <%= f.label :min_party_size %><br />
+     <%= f.label :min_party_size %>
      <%= f.number_field :min_party_size %>
   </div>
 
   <div class="field">
-     <%= f.label :max_party_size %><br />
+     <%= f.label :max_party_size %>
      <%= f.number_field :max_party_size %>
   </div>
 
   <div class="field">
-    <%= f.submit "Save" %>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
   </div>
 
+  <div class="field">
+    <%= f.submit "Add Restaurant", class: "btn-default" %>
+  </div>
 <% end %>
