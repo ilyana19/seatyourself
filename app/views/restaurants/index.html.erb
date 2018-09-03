@@ -4,7 +4,7 @@
   <% @restaurants.each do |restaurant| %>
     <%= link_to restaurant_path(restaurant) do %>
       <div class="restaurant-wrapper">
-        <%= image_tag('https://via.placeholder.com/360x200') %>
+        <div class="restaurant-image"><%= image_tag(restaurant.image) %></div>
         <h2><%= restaurant.name %> <small>(<%= restaurant.neighbourhood %>)</small></h2>
 
         <p class="restaurant-info">

@@ -41,3 +41,14 @@
   text-align: center;
   color: $black;
 }
+
+.restaurant-image {
+  max-width: 360px;
+  max-height: 250px;
+  overflow: hidden;
+
+  img {
+    object-position: 50% 50%;
+    object-fit: cover;
+  }
+}
