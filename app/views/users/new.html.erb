@@ -3,11 +3,11 @@
 
   <%= form_for @user, html: {class: 'form'} do |f| %>
     <% if @user.errors.any? %>
-      <div class="errors-block">
-          There are <%= pluralize(@user.errors.count, "error") %>.
+      <div class="error-explanation">
+          <h3>There are <%= pluralize(@user.errors.count, "error") %>.</h3>
           <ul>
             <% @user.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
+              <li>* <%= msg %>.</li>
             <% end %>
           </ul>
       </div>

@@ -38,17 +38,6 @@
   }
 }
 
-.error-block {
-  background: $light-gray;
-  position: absolute;
-  width: 100%;
-  top: 0;
-
-  .notice {
-    padding: 1em 0;
-  }
-}
-
 #main-nav {
   place-self: center end;
   padding-right: 1rem;
@@ -56,5 +45,47 @@
   .nav-links {
     display: inline-block;
     padding: 1rem;
+  }
+}
+
+.error-block {
+  background: $light-gray;
+  position: absolute;
+  width: 100%;
+  top: 0;
+
+  .notice {
+    padding: 1rem;
+  }
+
+  .alert {
+    padding: 1rem;
+  }
+}
+
+.error-explanation {
+  color: $red;
+  margin: 2rem auto;
+
+  h3 {
+    color: darken($red, 20%);
+    background: lighten($red, 40%);
+    padding: 1rem;
+    border-radius: 2px;
+  }
+
+  ul {
+    margin: 1rem 2rem;
+  }
+
+  li {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+}
+
+.field_with_errors {
+  input {
+    border: 1px solid $red;
   }
 }
