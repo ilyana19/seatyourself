@@ -1,54 +1,54 @@
-<h1>Sign Up</h1>
+<section class="form-wrapper wrapper">
+  <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="errors-block">
-        There are <%= pluralize(@user.errors.count, "error") %>.
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+  <%= form_for @user, html: {class: 'form'} do |f| %>
+    <% if @user.errors.any? %>
+      <div class="errors-block">
+          There are <%= pluralize(@user.errors.count, "error") %>.
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: 'Enter First Name' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: 'Enter Last Name' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, placeholder: 'Enter Mobile Number' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: 'Enter Email Address' %>
+    </div>
+
+    <div class="field">
+       <%= f.label :password %>
+       <%= f.password_field :password, placeholder: 'Enter Password' %>
+    </div>
+
+    <div class="field">
+       <%= f.label :password_confirmation %>
+       <%= f.password_field :password_confirmation, placeholder: 'Re-Enter Password' %>
+    </div>
+
+    <div class="field">
+      <%= f.submit 'Create Account', class: 'btn-default' %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %> <br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %> <br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %> <br />
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %> <br />
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-     <%= f.label :password %><br />
-     <%= f.password_field :password %>
-  </div>
-
-  <div class="field">
-     <%= f.label :password_confirmation %><br />
-     <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="field">
-     <%= f.label :is_owner? %><br />
-     <%= f.check_box :is_owner %>
-  </div>
-
-  <div class="field">
-    <%= f.submit "Save" %>
-  </div>
-
-<% end %>
+  <p class="call-to-action">
+    Already have an account? <%= link_to 'Log in!', new_session_path %>
+  </p>
+</section>
